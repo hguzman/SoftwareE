@@ -1,0 +1,147 @@
+-- phpMyAdmin SQL Dump
+-- version 3.1.1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generación: 23-04-2011 a las 20:18:01
+-- Versión del servidor: 5.1.30
+-- Versión de PHP: 5.2.8
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Base de datos: `bd_se`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `direccion`
+--
+
+CREATE TABLE IF NOT EXISTS `direccion` (
+  `idDireccion` int(10) NOT NULL AUTO_INCREMENT,
+  `idPersona` int(10) NOT NULL,
+  `direccion` varchar(30) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  PRIMARY KEY (`idDireccion`),
+  KEY `idPersona` (`idPersona`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcar la base de datos para la tabla `direccion`
+--
+
+INSERT INTO `direccion` (`idDireccion`, `idPersona`, `direccion`, `descripcion`) VALUES
+(4, 10, 'cra 35  # 43 B 58', 'Residencia actual');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `email`
+--
+
+CREATE TABLE IF NOT EXISTS `email` (
+  `idEmail` int(10) NOT NULL AUTO_INCREMENT,
+  `idPersona` int(10) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idEmail`),
+  KEY `idPersona` (`idPersona`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Volcar la base de datos para la tabla `email`
+--
+
+INSERT INTO `email` (`idEmail`, `idPersona`, `email`, `descripcion`) VALUES
+(7, 10, 'cayepes57@misena.edu.co', 'Correo del sena');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `personas`
+--
+
+CREATE TABLE IF NOT EXISTS `personas` (
+  `idPersona` int(10) NOT NULL AUTO_INCREMENT,
+  `nombres` varchar(30) NOT NULL,
+  `paterno` varchar(30) DEFAULT NULL,
+  `materno` varchar(30) DEFAULT NULL,
+  `cedula` bigint(20) DEFAULT NULL,
+  `alias` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`idPersona`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+--
+-- Volcar la base de datos para la tabla `personas`
+--
+
+INSERT INTO `personas` (`idPersona`, `nombres`, `paterno`, `materno`, `cedula`, `alias`) VALUES
+(10, 'cesar', 'yepes', 'Florez', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `telefono`
+--
+
+CREATE TABLE IF NOT EXISTS `telefono` (
+  `idTelefono` int(10) NOT NULL AUTO_INCREMENT,
+  `idPersona` int(10) NOT NULL,
+  `numero` bigint(20) NOT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idTelefono`),
+  KEY `idPersona` (`idPersona`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Volcar la base de datos para la tabla `telefono`
+--
+
+INSERT INTO `telefono` (`idTelefono`, `idPersona`, `numero`, `descripcion`) VALUES
+(7, 10, 3003975501, 'Celular Propio');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `idUsuario` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nDocumento` bigint(20) NOT NULL,
+  `contrasena` char(40) NOT NULL,
+  PRIMARY KEY (`idUsuario`),
+  UNIQUE KEY `nDocumento` (`nDocumento`),
+  KEY `login` (`nDocumento`,`contrasena`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcar la base de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`idUsuario`, `nDocumento`, `contrasena`) VALUES
+(1, 72555555, '82291d0f792b1e0b528030f2ae79a9ca7584521e');
+
+--
+-- Filtros para las tablas descargadas (dump)
+--
+
+--
+-- Filtros para la tabla `direccion`
+--
+ALTER TABLE `direccion`
+  ADD CONSTRAINT `direccion_ibfk_1` FOREIGN KEY (`idPersona`) REFERENCES `personas` (`idPersona`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `email`
+--
+ALTER TABLE `email`
+  ADD CONSTRAINT `email_ibfk_1` FOREIGN KEY (`idPersona`) REFERENCES `personas` (`idPersona`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `telefono`
+--
+ALTER TABLE `telefono`
+  ADD CONSTRAINT `telefono_ibfk_1` FOREIGN KEY (`idPersona`) REFERENCES `personas` (`idPersona`) ON DELETE CASCADE ON UPDATE CASCADE;

@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+form{
+	 width: 300px;
+	 border: 1px solid #C6E9FF;
+	 background-color: #ffffff;
+	 color: #000;
+	 text-align: center;
+	 font: 12px Arial, sans-serif;
+ }
+
+ fieldset{border: 0px solid #000;}
+
+ legend{
+	 color: #304A78;
+	 font-weight:bold;
+	 margin:5px 0 0 15px;
+ }
+
+ div.medidas{margin:5px 0;}
+
+ div.medidas label{display:block;}
+
+ div.medidas input{width:200px;}
+
+ div.check{display:none;}
+
+ input#login{
+ 	margin:5px 0;
+	border:1px solid #27518A;
+	background:#d3d3d3;
+ }
+
+ <!--
+    body {
+    	font: 100% Verdana, Arial, Helvetica, sans-serif;
+    	background: #d3d3d3;
+    	margin: 0; /* es recomendable ajustar a cero el margen y el relleno del elemento body para lograr la compatibilidad con la configuracin predeterminada de los diversos navegadores */
+    	padding: 0;
+    	text-align: center; /* esto centra el contenedor en los navegadores IE 5*. El texto se ajusta posteriormente con el valor predeterminado de alineacin a la izquierda en el selector #container */
+    	color: #000000;
+    }
+    .oneColFixCtrHdr #container {
+    	width: 780px;  /* el uso de 20px menos que un ancho completo de 800px da cabida a los bordes del navegador y evita la aparicin de una barra de desplazamiento horizontal */
+    	background: #FFFFFF;
+    	margin: 0 auto; /* los mrgenes automticos (conjuntamente con un ancho) centran la pgina */
+    	border: 3px solid #000000;
+    	text-align: left; /* esto anula text-align: center en el elemento body. */
+    }
+    .oneColFixCtrHdr #header {
+    	background: #ffffff; 
+    	padding: 0 10px 0 20px;  /* este relleno coincide con la alineacin izquierda de los elementos de los divs que aparecen bajo l. Si se utiliza una imagen en el #header en lugar de texto, es posible que le interese quitar el relleno. */
+    }
+    .oneColFixCtrHdr #header h1 {
+    	margin: 0; /* el ajuste en cero del margen del ltimo elemento del div de #header evita la contraccin del margen (un espacio inexplicable entre divs). Si el div tiene un borde alrededor, esto no es necesario, ya que tambin evita la contraccin del margen */
+    	padding: 10px 0; /* el uso de relleno en lugar de margen le permitir mantener el elemento alejado de los bordes del div */
+    }
+    .oneColFixCtrHdr #mainContent {
+    	padding: 0 20px; /* recuerde que el relleno es el espacio situado dentro del cuadro div y que el margen es el espacio situado fuera del cuadro div */
+    	background: #FFFFFF;
+    }
+    .oneColFixCtrHdr #footer {
+    	padding: 0 10px; /* este relleno coincide con la alineacin izquierda de los elementos de los divs que aparecen por encima de l. */
+    	background:#ffffff;
+    }
+    .oneColFixCtrHdr #footer p {
+    	margin: 0; /* el ajuste en cero de los mrgenes del primer elemento del pie evitar que puedan contraerse los mrgenes (un espacio entre divs) */
+    	padding: 10px 0; /* el relleno de este elemento crear espacio, de la misma forma que lo hara el margen, sin el problema de la contraccin de mrgenes */
+    }
+.Estilo3 {font-size: small}
+.Estilo4 {
+	font-size: large
+}
+.customers
+{
+font-family: 'Trebuchet MS',Arial, Helvetica, Sans-Serif;
+width: 90%;
+border-collapse:collapse;
+
+}
+
+.customers a
+{
+ 	text-decoration: underline;
+
+}
+
+.customers td, .customers th 
+{
+font-size:1em;
+border:1px solid #68ac31;
+padding:3px 7px 2px 7px;
+}
+.customers th 
+{
+font-size:1.1em;
+text-align:left;
+padding-top:5px;
+padding-bottom:4px;
+background-color:#68ac31;
+color:#000000;
+}
+.customers tr.alt td 
+{
+color:#000000;
+background-color:#EAF2D3;
+}
+img {
+border:none;
+	
+}
+/* links */
+a, a:visited {
+	
+	text-decoration: none;
+	background: inherit;
+	color: #990000/*FB9233*/; 
+}
+a:hover {
+	text-decoration: underline;
+	background: inherit;
+	color: #68ac31/*93C600*/;
+}
+
